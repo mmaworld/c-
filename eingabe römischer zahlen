@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace aufgabe_4
+{
+  internal class Program
+  {
+    static void Main(string[] args)
+    {
+
+      string V = "V";
+      string I = "I";
+      string x = "X";
+      string eingabe; 
+      string wiederholung;
+
+      do
+      {
+        Console.Clear();
+        Console.Write("welches zeichen wollen sie übersetzt haben? :");
+        eingabe = Console.ReadLine().ToUpper();
+        if (eingabe == x)
+        {
+          Console.WriteLine("x = 10");
+        }
+
+        else if (eingabe == I)
+        {
+          Console.WriteLine("I = 1");
+        }
+
+        else if (eingabe == V)
+        {
+          Console.WriteLine("V = 5");
+        }
+
+
+
+        Console.Write("möchten sie noch einen buchstaben fragen? [J/N]");
+        wiederholung = Console.ReadLine();
+      } while (wiederholung.ToLower() == "j");
+
+      Console.ReadLine();
+    }
+
+
+  }
+}
