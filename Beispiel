@@ -53,6 +53,68 @@ namespace M319_Test
 
   }
 
+                static void Main(string[] args)
+        {
+
+
+            int startYear = InputYear("start year");
+            int endYear;
+
+            do
+            {
+                endYear = InputYear("end year");
+
+                if (endYear >= startYear)
+                {
+                    break;
+                }
+
+                Console.WriteLine("End year must be greater than or equal to start year.");
+            } while (true);
+
+            PrintAllLeapYears(startYear, endYear);
+            Console.ReadLine();
+        }
+
+        static int InputYear(string yearType)
+        {
+            int year;
+
+            do
+            {
+                Console.Write("Enter Year: ");
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out year) && year >= 0 && year <= 5000)
+                {
+                    break;
+                }
+
+                Console.WriteLine("Invalid input. Please enter a valid year between 0 and 5000.");
+            } while (true);
+
+            return year;
+        }
+
+        static void PrintAllLeapYears(int startYear, int endYear)
+        {
+            Console.WriteLine("Leap years between {0} and {1}:", startYear, endYear);
+
+            for (int year = startYear; year <= endYear; year++)
+            {
+                if (IsLeapYear(year))
+                {
+                    Console.WriteLine(year);
+                }
+            }
+        }
+
+        static bool IsLeapYear(int year)
+        {
+            return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        }
+    }
+}
 
 
 
