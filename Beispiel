@@ -1,16 +1,57 @@
-hallo
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace M319_Test
+{
+  internal class Program
+  {
+    static void Main(string[] args)
+    {
+      int startyear = InputYear("start year");
+      int endyear = InputYear("end year");
+      PrintAllLeapYears(startyear, endyear);
+      Console.ReadLine();
+    }
+
+    static int InputYear(String text1)      
+    {
+      bool ok = false;
+      int year = 0;
+
+      do
+      {
+          Console.Write("please enter {0} between 0 and 5000: ", text1);
+          ok = Int32.TryParse(Console.ReadLine(), out year);
+        if (ok) ok = year >= 0 && year <= 5000;
 
 
-Hesch öppis?
-
-nei du?
-
-schick din code
-
+      } while (!ok);
+      return year;
+    }
+	
 
 
+  static void PrintAllLeapYears(int min, int max)  
+  {
+      for (int i = min; i <= max; i++) 
+      {
+        if (i % 400 == 0)
+          Console.Write(i + ", ");
 
+        else if (i % 4==0 && i % 100 != 0 )
+        Console.Write(i + ", ");
 
+      }
+      Console.ReadKey();
+      
+  }
+
+}
+
+  }
 
 
 
