@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace test
+{
+  internal class Program
+  {
+    static void Main(string[] args)
+    {
+    int zahl = 0;
+      string wiederholung = "JA";
+
+
+      do
+      {
+        Console.Clear();
+        Console.Write("bitte geben sie eine zahl ein: ");
+        zahl = Convert.ToInt32(Console.ReadLine());
+
+        if (zahl > 0 && zahl <= 100 && zahl % 10 == 0)
+        {
+          Console.WriteLine("\ndie zahl liegt liegt in der zehner reihe");
+        }
+        else{ 
+          Console.WriteLine("\ndie zahl liegt nicht in der zehner reihe");
+
+        }
+
+        if (zahl % 2 == 0)
+          Console.WriteLine("\ndie zahl ist gerade");
+
+        
+
+        Console.WriteLine("\nmöchten sie nochmal eine zahl eingeben?: ");
+
+
+        wiederholung = Console.ReadLine().ToUpper();
+      } while (wiederholung == "JA");
+
+
+
+
+    }
+  }
+}
