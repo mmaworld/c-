@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Aufgabe_4
+{
+  internal class Program
+  {
+    static void Main(string[] args)
+    {
+
+
+      Console.WriteLine("Are you a [M] or [F]");
+      string sex = Console.ReadLine().ToUpper();
+
+      Console.WriteLine("How mutch do you wheight? :");
+      int gewicht = Convert.ToInt32(Console.ReadLine());
+
+
+
+      if (sex == "M")
+
+
+
+      {
+        if (gewicht <= 55) Console.WriteLine("You are Fliegengewicht");
+        else if (gewicht <= 66 && gewicht > 55) Console.WriteLine("You are Leichtgewicht");
+        else if (gewicht <= 84 && gewicht > 66) Console.WriteLine("You are Mittelgewicht");
+        else if (gewicht <= 120 && gewicht > 84) Console.WriteLine("You are Schwergewicht");
+
+
+
+
+      }
+
+      if (sex == "F")
+      {
+        if (gewicht <= 48) Console.WriteLine("You are Fliegengewicht");
+        else if (gewicht <= 55) Console.WriteLine("You are Leichtgewicht");
+        else if (gewicht <= 63) Console.WriteLine("You are Mittelgewicht");
+        else if (gewicht <= 72) Console.WriteLine("You are Schwergewicht");
+        else Console.WriteLine("You are Schwergewicht ");
+      }
+
+
+
+
+      Console.ReadKey();
+      }
+    }
+  }
+
