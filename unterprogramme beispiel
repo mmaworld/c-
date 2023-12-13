@@ -1,0 +1,28 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Eingabe von zwei Zahlen durch den Benutzer
+        Console.WriteLine("Bitte geben Sie die erste Zahl ein:");
+        int num1 = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Bitte geben Sie die zweite Zahl ein:");
+        int num2 = Convert.ToInt32(Console.ReadLine());
+
+        // Aufruf der AddNumbers-Methode und Ausgabe des Ergebnisses
+        int sum = AddNumbers(num1, num2);
+        Console.WriteLine($"Die Summe von {num1} und {num2} ist: {sum}");
+    }
+
+    // Methode zur Addition von zwei Zahlen
+    static int AddNumbers(int a, int b)
+    {
+        // Code-Block für die Addition
+        int result = a + b;
+
+        // Rückgabe des Ergebnisses
+        return result;
+    }
+}
