@@ -100,7 +100,64 @@ public class Program
 }
 
 
+oder
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Security.Permissions;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace test
+{
+  internal class Program
+  {
+    static void Main(string[] args)
+    {
+      string repeat = "";
+      do
+      {
+        Console.Clear();
+        int i = 1;
+        Random random = new Random();
+        int secNo = random.Next(1, 5);
+        Console.WriteLine("erraten sie die zahl");
+        int guessNo = 0;
+        while (i < 5 && guessNo != secNo)
+        {
+          Console.Write("Rateversuch {0} :", i);
+          guessNo = Convert.ToInt32(Console.ReadLine());
+          {
+            if (guessNo == secNo)
+              Console.WriteLine("ihre zahl war richtig");
+
+          }
+
+          if (guessNo == secNo)
+          {
+          Console.WriteLine("Herzlichen Glückwunsch die zahl war richtig");
+          }
+
+          if (guessNo < secNo)
+
+            Console.WriteLine("Die Zahl ist zu niedrig"); i++;
+
+          if (guessNo > secNo)
+
+            Console.WriteLine("Die Zahl ist zu hoch");
+          
+        }
+        if ((guessNo != secNo))
+          Console.WriteLine("diese zahl ist falsch die zahl wäre {0} gewesen", secNo);
+        Console.WriteLine("\nmöchten sie erneut spielen? [JA/NEIN]");
+        repeat = Console.ReadLine().ToUpper();
+
+      } while (repeat == "JA");
+    }
+  }
+}
                
