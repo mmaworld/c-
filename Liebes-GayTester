@@ -47,8 +47,20 @@ namespace test
           
           Console.Write("\nHeute finden wir heraus ob du gay bist! Beantworte alle Fragen ernst!");
 
-          Console.Write("\n\nFrag 1 = Welche Nationalität bist du?: ");
+          Console.Write("\n\nFrage 1 = Aus welchem Land kommst du?: ");
           nationalität = Console.ReadLine().ToLower();
+
+          if (nationalität == "ungarn")
+          {
+            Console.Write("Du bist 0% Gay aber Hussein ist ");
+
+          }
+
+          if (nationalität == "libanon")
+          {
+            Console.Write("Du bist 100% Terrorist und");
+
+          }
 
           if (nationalität == "portugal")
           {
@@ -59,7 +71,7 @@ namespace test
           if (nationalität == "kosovo")
           {
             Console.Write("Bitte schreibe ein echtes land in die eingabe");
-            Console.Write("\n\nFrag 1 = Welche Nationalität bist du?: ");
+            Console.Write("\n\nFrage 1 = Aus welchem Land kommst du?: ");
             nationalität = Console.ReadLine().ToLower();
           }
             if (nationalität == "albanien")
@@ -69,7 +81,7 @@ namespace test
 
           else 
           {
-            Console.Write("\ndu bist {0}% Gay!", zufallszahl);
+            Console.Write("\n{0}% Gay!", zufallszahl);
           }
 
 
