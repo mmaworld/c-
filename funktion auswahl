@@ -1,0 +1,157 @@
+using System;
+using System.Diagnostics.Eventing.Reader;
+
+namespace Spiel
+{
+  internal class Program
+  {
+    static void Main(string[] args)
+    {
+      string zurück = "ja";
+
+      while (zurück == "ja")
+      {
+        Console.Clear();
+        Console.Write("eine Zufallszahl ausgeben         = 1\n" +
+                      "Ihren Notendurchschnitt berechnen = 2\n" +
+                      "ein Ratespiel spielen             = 3\n\n" +
+                      "geben sie eine zahl für eine funktion ein: ");
+        string auswahl = Console.ReadLine();
+
+        HandleUserChoice(auswahl);
+
+        Console.Write("\nWollen Sie zurück? ja/nein: ");
+        zurück = Console.ReadLine().ToLower();
+      }
+
+      Console.ReadKey();
+    }
+
+    static void HandleUserChoice(string auswahl)
+    {
+      switch (auswahl)
+      {
+        case "1":
+          GenerateRandomNumber();
+          break;
+
+        case "2":
+          CalculateGradeAverage();
+          break;
+
+        case "3":
+          ratespiel();
+          break;
+
+        default:
+          Console.WriteLine("Ungültige Auswahl!");
+          break;
+      }
+    }
+
+    static void GenerateRandomNumber()
+    {
+      Random rnd = new Random();
+      int zufallszahl = rnd.Next(1, 100);
+      Console.WriteLine("Zufallszahl: " + zufallszahl);
+    }
+
+    static void CalculateGradeAverage()
+    {
+      string mehrnoten = "j";
+      int anzahlnoten = 0;
+      int durchschnitt = 0;
+
+
+
+      int eingebeneNote = 0;
+      Console.WriteLine("geben sie ihre noten ein um den durchschnitt zu berechnen (-1 zum Beenden): ");
+      while (eingebeneNote > -1 )
+      {
+        Console.Write("geben sie eine noten ein): ");
+      
+      
+        if (int.TryParse(Console.ReadLine(), out eingebeneNote))
+        {
+          if (eingebeneNote == -1)
+          {
+            break; 
+          }
+
+          if (eingebeneNote >= 1 && eingebeneNote <= 6)
+          {
+            durchschnitt += eingebeneNote;
+            anzahlnoten++;
+          }
+          else
+          {
+            Console.WriteLine("Ungültige Eingabe. Bitte geben Sie eine Note zwischen 1 und 6 ein.");
+          }
+        }
+        else
+        {
+          Console.WriteLine("Ungültige Eingabe. Bitte geben Sie eine ganze Zahl ein.");
+        }
+      }
+
+      if (anzahlnoten > 0)
+      {
+        Console.WriteLine("Durchschnitt: {0}", (double)durchschnitt / anzahlnoten);
+      }
+      else
+      {
+        Console.WriteLine("Keine Noten eingegeben!");
+      }
+    }
+
+    static void ratespiel()
+    {
+
+
+      Random rndObject = new Random();
+      bool repeat = false;
+      bool ok = false;
+
+      do
+      {
+        Console.Clear();
+        int secretNo = rndObject.Next(1, 101);
+        int guessNo = 0;
+        for (int tryNo = 1; tryNo <= 5; tryNo++)
+        {
+          do
+          {
+            Console.WriteLine("Errate die Zahl von 1-100 ;) ");
+            Console.WriteLine("");
+            Console.WriteLine("your {0}. guess: ", tryNo);
+            ok = Int32.TryParse(Console.ReadLine(), out guessNo);
+            if (!ok) Console.WriteLine("Please Write an Number");
+          } while (!ok);
+
+          if (guessNo > secretNo)
+            Console.WriteLine("Your number is to high");
+          else if (guessNo < secretNo)
+            Console.WriteLine("Youre Number is to low");
+          else
+          {
+            Console.WriteLine("Yes, you got it! great!");
+            break; 
+          }
+        }
+
+
+        if (guessNo != secretNo)
+          Console.WriteLine("That was weak! the number was {0}", secretNo);
+
+
+        Console.WriteLine("Whould you like to play again) [Yes / No]:");
+        if (Console.ReadLine().ToUpper() == "YES")
+          repeat = true;
+        else repeat = false;
+
+      } while (repeat);
+      Console.ReadKey();
+    }
+  }
+}
+
