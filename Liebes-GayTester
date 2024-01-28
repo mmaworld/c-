@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace test
+{
+  internal class Program
+  {
+    static void Main(string[] args)
+    {
+
+    Random rnd = new Random();
+    int zufallszahl = rnd.Next(1, 100);
+      string eingabe = "";
+      string nationalität = "";
+      string wiederholung = "";
+
+      
+        Console.Write("was willst du für eine funktion?\n\nLiebestester = 1\n\nGaytester = 2\n\nEINGABE: ");
+        eingabe = Console.ReadLine();
+
+ 
+
+      if (eingabe == "1")
+      {
+        Console.WriteLine("Wie viel Liebe steckt dahinter? Gibt 2 Namen ein");
+
+        Console.Write("\nName1: ");
+        eingabe = Console.ReadLine();
+
+        Console.Write("\nName2: ");
+        eingabe = Console.ReadLine();
+
+        Console.Write("\nHinter euch steckt {0}% Liebe :)", zufallszahl);
+      }
+
+
+      if (eingabe == "2") {
+
+
+        do
+        {
+          
+          Console.Write("\nHeute finden wir heraus ob du gay bist! Beantworte alle Fragen ernst!");
+
+          Console.Write("\n\nFrag 1 = Welche Nationalität bist du?: ");
+          nationalität = Console.ReadLine().ToLower();
+
+          
+
+          if (nationalität == "kosovo")
+          {
+            Console.Write("Bitte schreibe ein echtes land in die eingabe");
+            Console.Write("\n\nFrag 1 = Welche Nationalität bist du?: ");
+            nationalität = Console.ReadLine().ToLower();
+          }
+            if (nationalität == "albanien")
+            {
+              Console.Write("100% Gay");
+            }
+
+          else 
+          {
+            Console.Write("du bist {0}% Gay!", zufallszahl);
+          }
+
+
+          Console.Write("\n\nWillst du nochmals einen gaytest machen?: ");
+            wiederholung = Console.ReadLine();
+
+          } while (wiederholung == "ja") ;
+
+          Console.ReadKey();
+
+
+       
+        }
+    }
+  }
+}
