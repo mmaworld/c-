@@ -50,7 +50,11 @@ namespace test
           Console.Write("\n\nFrag 1 = Welche Nationalität bist du?: ");
           nationalität = Console.ReadLine().ToLower();
 
-          
+          if (nationalität == "portugal")
+          {
+            Console.Write("Sie haben Spanien eingegeben!");
+            
+          }
 
           if (nationalität == "kosovo")
           {
@@ -65,7 +69,7 @@ namespace test
 
           else 
           {
-            Console.Write("du bist {0}% Gay!", zufallszahl);
+            Console.Write("\ndu bist {0}% Gay!", zufallszahl);
           }
 
 
